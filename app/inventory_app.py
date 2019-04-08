@@ -32,7 +32,7 @@ for product in products:
 print("---------------------")
 print("CREATING A NEW PRODUCT:")
 
-new_product_attributes = {
+new_product = {
     "name": "My New Product",
     "aisle": "Some Aisle",
     "department": "Some Department",
@@ -40,11 +40,12 @@ new_product_attributes = {
 } # further exploration / todo: ask for user to input
 
 next_id = len(products) + 1
-new_product_attributes["id"] = next_id
 
-print(new_product_attributes)
+new_product["id"] = next_id
 
-products.append(new_product_attributes)
+print(new_product)
+
+products.append(new_product)
 
 #
 # WRITE
