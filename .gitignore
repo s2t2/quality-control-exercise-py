@@ -1,0 +1,4 @@
+
+# ignore pytest files:
+
+__pycache__
