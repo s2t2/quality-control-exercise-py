@@ -22,7 +22,14 @@ def write_to_csv(my_products, my_filepath):
             writer.writerow(product)
 
 def autogen_id(existing_products):
-    return len(existing_products) + 1
+    #return len(existing_products) + 1
+    if len(existing_products) == 0: # avoid "max() arg is an empty sequence" error when attempting to call max() on an empty list of products
+        next_id = 1
+    else:
+        product_ids = [int(p["id"]) for p in existing_products]
+        max_id = max(product_ids)
+        next_id = max_id + 1
+    return next_id
 
 # only run the code inside if this script is invoked from the command line
 if __name__ == "__main__":
