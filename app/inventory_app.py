@@ -21,12 +21,11 @@ def write_to_csv(my_products, my_filepath):
         for product in my_products:
             writer.writerow(product)
 
+def autogen_id(existing_products):
+    return len(existing_products) + 1
 
 # only run the code inside if this script is invoked from the command line
 if __name__ == "__main__":
-
-    # print(__name__)
-    # print(__file__)
 
     # READ
 
@@ -58,7 +57,7 @@ if __name__ == "__main__":
         "price": 99.99
     } # further exploration / todo: ask for user to input
 
-    next_id = len(products) + 1
+    next_id = autogen_id(products)
 
     new_product["id"] = next_id
 

@@ -1,7 +1,7 @@
 import csv
 import os
 
-from app.inventory_app import read_from_csv, write_to_csv #, autogen_id
+from app.inventory_app import read_from_csv, write_to_csv, autogen_id
 
 # test logic for processing CSV file contents into a list of product dictionaries
 def test_read_from_csv():
@@ -29,6 +29,8 @@ def test_write_to_csv():
 
     assert os.path.isfile(temp_filepath) == True
 
-## TODO: test logic for auto-incrementing the identifier of a product about to be created
-#def test_autogen_id():
-#    assert False
+# test logic for auto-incrementing the identifier of a product about to be created
+def test_autogen_id():
+    products = []
+    next_id = autogen_id(products)
+    assert next_id == 1
