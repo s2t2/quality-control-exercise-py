@@ -2,3 +2,5 @@
 # ignore pytest files:
 
 __pycache__
+
+test/mock_data/temp_products.csv
