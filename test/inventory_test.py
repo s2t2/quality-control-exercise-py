@@ -34,3 +34,8 @@ def test_autogen_id():
     products = []
     next_id = autogen_id(products)
     assert next_id == 1
+
+    reordered_filepath = os.path.join(os.path.dirname(__file__), "..", "test", "mock_data", "reordered_products.csv")
+    reordered_products = read_from_csv(reordered_filepath)
+    next_id = autogen_id(reordered_products)
+    assert next_id == 201
