@@ -13,6 +13,15 @@ def read_from_csv(my_csv_filepath):
 
     return my_products
 
+def write_to_csv(my_products, my_filepath):
+    with open(my_filepath, "w") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
+        writer.writeheader()
+
+        for product in my_products:
+            writer.writerow(product)
+
+
 # only run the code inside if this script is invoked from the command line
 if __name__ == "__main__":
 
@@ -24,7 +33,6 @@ if __name__ == "__main__":
     csv_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "products.csv")
 
     products = read_from_csv(csv_filepath)
-
 
     #
     # LIST
@@ -58,13 +66,6 @@ if __name__ == "__main__":
 
     products.append(new_product)
 
-    #
     # WRITE
-    #
 
-    with open(csv_filepath, "w") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
-        writer.writeheader()
-
-        for product in products:
-            writer.writerow(product)
+    write_to_csv(products, csv_filepath)
