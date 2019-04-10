@@ -1,24 +1,30 @@
 import csv
 import os
 
-csv_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "products.csv")
 csv_headers = ["id", "name", "aisle", "department", "price"]
 
 def read_from_csv(my_csv_filepath):
-    return []
+    my_products = []
 
-if __name__ == "__main__":
-
-    #
-    # READ
-    #
-
-    products = []
-
-    with open(csv_filepath, "r") as csv_file:
+    with open(my_csv_filepath, "r") as csv_file:
         reader = csv.DictReader(csv_file)
         for ordered_dict in reader:
-            products.append(dict(ordered_dict))
+            my_products.append(dict(ordered_dict))
+
+    return my_products
+
+# only run the code inside if this script is invoked from the command line
+if __name__ == "__main__":
+
+    # print(__name__)
+    # print(__file__)
+
+    # READ
+
+    csv_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "products.csv")
+
+    products = read_from_csv(csv_filepath)
+
 
     #
     # LIST
